@@ -694,7 +694,7 @@
       let message = '🚨 EMERGENCY ALERT! I need immediate help!';
       
       if (currentLocation) {
-        message += `\n📍 My location: https://maps.google.com/search/?q=${currentLocation.lat},${currentLocation.lng}`;
+        + message += `\n📍 My location: https://maps.google.com/?q=${currentLocation.lat},${currentLocation.lng}`;
         message += `\n⏰ Time: ${new Date().toLocaleString()}`;
         message += `\n🎯 Accuracy: ±${currentLocation.accuracy} meters`;
       } else {
@@ -1044,7 +1044,7 @@
           
           // Create SMS link for follow-up
           const encodedMessage = encodeURIComponent(followUpMessage + (currentLocation ? 
-            `\n📍 Location: https://maps.google.com/search/?q=${currentLocation.lat},${currentLocation.lng}` : ''));
+           + `\n📍 Location: https://maps.google.com/?q=${currentLocation.lat},${currentLocation.lng}`
           window.open(`sms:${contact.phone}?body=${encodedMessage}`, '_blank');
         }
       });
@@ -1077,4 +1077,5 @@
     });
   </script>
 </body>
+
 </html>
