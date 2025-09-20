@@ -9,88 +9,209 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* === ORIGINAL CSS FROM YOUR FILE (kept same) === */
-    :root{--bg:#0d0f12;--card:#12151a;--muted:#9aa4b2;--brand:#e11d48;--brand-2:#ef4444;--accent:#22d3ee;--ring:0 0 0 3px rgba(225,29,72,.25);--success:#10b981;--warning:#f59e0b;}
+    :root{
+      --bg:#0d0f12;
+      --card:#12151a;
+      --muted:#9aa4b2;
+      --brand:#e11d48; /* crimson */
+      --brand-2:#ef4444; /* red */
+      --accent:#22d3ee; /* cyan */
+      --ring: 0 0 0 3px rgba(225,29,72,.25);
+      --success:#10b981;
+      --warning:#f59e0b;
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#f8fafc;background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1120px,92%);margin-inline:auto}
-    /* Login */
-    .login-container{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(1200px 600px at 50% 20%,rgba(239,68,68,.15),transparent 70%),radial-gradient(900px 500px at 50% 80%,rgba(34,211,238,.1),transparent 70%)}
-    .login-card{background:var(--card);border:1px solid #1f242d;border-radius:18px;padding:32px;width:min(400px,90%);box-shadow:0 20px 40px rgba(0,0,0,.5)}
-    .login-header{text-align:center;margin-bottom:24px}
-    .login-logo{width:48px;height:48px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(120% 120% at 30% 20%,var(--brand-2),var(--brand));box-shadow:0 10px 30px rgba(239,68,68,.35)}
-    .login-logo svg{width:28px;height:28px}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:#f8fafc; background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1120px, 92%); margin-inline:auto}
+    
+    /* Login Page Styles */
+    .login-container{
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(1200px 600px at 50% 20%, rgba(239,68,68,.15), transparent 70%),
+                 radial-gradient(900px 500px at 50% 80%, rgba(34,211,238,.1), transparent 70%);
+    }
+    .login-card{
+      background:var(--card); border:1px solid #1f242d; border-radius:18px; 
+      padding:32px; width:min(400px, 90%); box-shadow:0 20px 40px rgba(0,0,0,.5);
+    }
+    .login-header{text-align:center; margin-bottom:24px}
+    .login-logo{
+      width:48px; height:48px; margin:0 auto 12px; display:grid; place-items:center; 
+      border-radius:50%; background: radial-gradient(120% 120% at 30% 20%, var(--brand-2), var(--brand));
+      box-shadow:0 10px 30px rgba(239,68,68,.35);
+    }
+    .login-logo svg{width:28px; height:28px}
     .form-group{margin-bottom:16px}
-    .form-group label{display:block;margin-bottom:6px;font-weight:600;font-size:.9rem}
-    .form-input{width:100%;padding:12px 16px;border-radius:12px;border:1px solid #1f242d;background:#0b1118;color:#f8fafc;font-size:.95rem}
-    .form-input:focus{outline:none;border-color:var(--brand);box-shadow:var(--ring)}
+    .form-group label{display:block; margin-bottom:6px; font-weight:600; font-size:0.9rem}
+    .form-input{
+      width:100%; padding:12px 16px; border-radius:12px; border:1px solid #1f242d;
+      background:#0b1118; color:#f8fafc; font-size:0.95rem;
+    }
+    .form-input:focus{outline:none; border-color:var(--brand); box-shadow:var(--ring)}
+    
     /* Buttons */
-    .btn{display:inline-flex;gap:.5rem;align-items:center;padding:.8rem 1rem;border-radius:12px;font-weight:600;border:none;cursor:pointer;width:100%;justify-content:center;text-decoration:none;transition:all .2s}
-    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 10px 30px rgba(239,68,68,.35);color:white}
-    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 15px 35px rgba(239,68,68,.45)}
-    .btn-secondary{background:var(--card);border:1px solid #1f242d;color:var(--muted)}
-    .btn-secondary:hover{color:white;border-color:#2f3640}
-    /* Main Site */
-    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:linear-gradient(180deg,rgba(13,15,18,.9),rgba(13,15,18,.6));border-bottom:1px solid #1f242d}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.4px}
-    .logo-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(120% 120% at 30% 20%,var(--brand-2),var(--brand));box-shadow:0 10px 30px rgba(239,68,68,.25)}
-    .logo-mark svg{width:18px;height:18px}
-    .nav a{color:var(--muted);margin-left:20px}
+    .btn{
+      display:inline-flex; gap:.5rem; align-items:center; padding:.8rem 1rem; 
+      border-radius:12px; font-weight:600; border:none; cursor:pointer; width:100%;
+      justify-content:center; text-decoration:none; transition:all 0.2s;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--brand), var(--brand-2)); 
+      box-shadow:0 10px 30px rgba(239,68,68,.35); color:white;
+    }
+    .btn-primary:hover{transform:translateY(-1px); box-shadow:0 15px 35px rgba(239,68,68,.45)}
+    .btn-secondary{
+      background:var(--card); border:1px solid #1f242d; color:var(--muted);
+    }
+    .btn-secondary:hover{color:white; border-color:#2f3640}
+    
+    /* Main Site Styles (from original) */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:linear-gradient(180deg, rgba(13,15,18,.9), rgba(13,15,18,.6)); border-bottom:1px solid #1f242d;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; gap:.6rem; align-items:center; font-weight:800; letter-spacing:.4px}
+    .logo-mark{width:28px; height:28px; display:grid; place-items:center; border-radius:50%;
+      background: radial-gradient(120% 120% at 30% 20%, var(--brand-2), var(--brand));
+      box-shadow:0 10px 30px rgba(239,68,68,.25);
+    }
+    .logo-mark svg{width:18px; height:18px}
+    .nav a{color:var(--muted); margin-left:20px}
     .nav a:hover{color:#fff}
+    
     /* Hero */
-    .hero{padding:72px 0 48px;position:relative;overflow:hidden;border-bottom:1px solid #1f242d;background:radial-gradient(1200px 600px at 90% -10%,rgba(239,68,68,.12),transparent 60%),radial-gradient(900px 500px at -10% 40%,rgba(34,211,238,.08),transparent 60%)}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:36px;align-items:center}
-    .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
-    h1{margin:.4rem 0 1rem;font-size:clamp(2rem,4vw,3rem);line-height:1.15}
-    .lead{color:#d0d6de;font-size:1.05rem;max-width:56ch}
-    .hero-card{background:var(--card);border:1px solid #1f242d;border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .stat{display:grid;grid-template-columns:max-content 1fr;gap:.5rem 1rem;align-items:center;margin:10px 0}
+    .hero{
+      padding:72px 0 48px; position:relative; overflow:hidden; border-bottom:1px solid #1f242d;
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(239,68,68,.12), transparent 60%),
+                 radial-gradient(900px 500px at -10% 40%, rgba(34,211,238,.08), transparent 60%);
+    }
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .9fr; gap:36px; align-items:center}
+    .eyebrow{color:var(--accent); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
+    h1{margin:.4rem 0 1rem; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15}
+    .lead{color:#d0d6de; font-size:1.05rem; max-width:56ch}
+    .hero-card{background:var(--card); border:1px solid #1f242d; border-radius:18px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .stat{display:grid; grid-template-columns: max-content 1fr; gap:.5rem 1rem; align-items:center; margin:10px 0}
     .stat svg{opacity:.9}
+
     /* Sections */
     section{padding:56px 0}
-    .section-title{font-size:1.6rem;margin:0 0 14px}
+    .section-title{font-size:1.6rem; margin:0 0 14px}
     .muted{color:var(--muted)}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);border:1px solid #1f242d;border-radius:16px;padding:18px}
-    .card h3{margin:8px 0;font-size:1.05rem}
-    .pill{display:inline-block;font-size:.75rem;color:#fff;background:#0b1118;border:1px solid #1f242d;padding:.3rem .6rem;border-radius:999px}
-    .features-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .features-list li{background:#0b1118;border:1px solid #1f242d;padding:10px 12px;border-radius:12px}
-    .cta{background:linear-gradient(135deg,rgba(239,68,68,.14),rgba(239,68,68,.04));border-top:1px solid #1f242d;border-bottom:1px solid #1f242d}
-    .cta .box{background:var(--card);border:1px solid #1f242d;border-radius:18px;padding:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
-    footer{padding:30px 0;color:var(--muted)}
-    /* Emergency Features */
-    .sos-button{width:120px;height:120px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 15px 40px rgba(239,68,68,.5);color:white;font-weight:800;font-size:1.1rem;transition:all .3s;margin:20px auto;display:block}
-    .sos-button:hover{transform:scale(1.05);box-shadow:0 20px 50px rgba(239,68,68,.7)}
-    .sos-button:active{transform:scale(.95)}
-    .fake-call-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .call-interface{background:linear-gradient(180deg,#1a1a1a,#0a0a0a);border-radius:20px;padding:40px 30px;width:min(350px,90%);text-align:center;color:white;box-shadow:0 20px 60px rgba(0,0,0,.8)}
-    .caller-avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,var(--accent),#0891b2);display:grid;place-items:center;font-size:2.5rem;font-weight:800}
-    .caller-name{font-size:1.5rem;font-weight:600;margin-bottom:8px}
-    .call-status{color:var(--muted);font-size:.9rem;margin-bottom:30px}
-    .call-buttons{display:flex;justify-content:space-around;margin-top:30px}
-    .call-btn{width:70px;height:70px;border-radius:50%;border:none;cursor:pointer;display:grid;place-items:center;font-size:1.5rem;transition:all .2s}
-    .call-decline{background:#ef4444;color:white}
-    .call-accept{background:#10b981;color:white}
-    .contacts-section{background:var(--card);border:1px solid #1f242d;border-radius:16px;padding:20px;margin:20px 0}
-    .contact-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #1f242d}
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid #1f242d; border-radius:16px; padding:18px}
+    .card h3{margin:8px 0; font-size:1.05rem}
+    .pill{display:inline-block; font-size:.75rem; color:#fff; background:#0b1118; border:1px solid #1f242d; padding:.3rem .6rem; border-radius:999px}
+
+    .features-list{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
+    .features-list li{background:#0b1118; border:1px solid #1f242d; padding:10px 12px; border-radius:12px}
+
+    /* CTA */
+    .cta{background:linear-gradient(135deg, rgba(239,68,68,.14), rgba(239,68,68,.04)); border-top:1px solid #1f242d; border-bottom:1px solid #1f242d}
+    .cta .box{background:var(--card); border:1px solid #1f242d; border-radius:18px; padding:24px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+
+    footer{padding:30px 0; color:var(--muted)}
+    
+    /* Emergency Features Styles */
+    .sos-button{
+      width:120px; height:120px; border-radius:50%; border:none; cursor:pointer;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow:0 15px 40px rgba(239,68,68,.5); color:white; font-weight:800;
+      font-size:1.1rem; transition:all 0.3s; margin:20px auto; display:block;
+    }
+    .sos-button:hover{transform:scale(1.05); box-shadow:0 20px 50px rgba(239,68,68,.7)}
+    .sos-button:active{transform:scale(0.95)}
+    
+    /* Fake Call Styles */
+    .fake-call-overlay{
+      position:fixed; top:0; left:0; width:100%; height:100%; background:#000;
+      z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    }
+    .call-interface{
+      background:linear-gradient(180deg, #1a1a1a, #0a0a0a); border-radius:20px;
+      padding:40px 30px; width:min(350px, 90%); text-align:center; color:white;
+      box-shadow:0 20px 60px rgba(0,0,0,.8);
+    }
+    .caller-avatar{
+      width:100px; height:100px; border-radius:50%; margin:0 auto 20px;
+      background:linear-gradient(135deg, var(--accent), #0891b2); display:grid; place-items:center;
+      font-size:2.5rem; font-weight:800;
+    }
+    .caller-name{font-size:1.5rem; font-weight:600; margin-bottom:8px}
+    .call-status{color:var(--muted); font-size:0.9rem; margin-bottom:30px}
+    .call-buttons{
+      display:flex; justify-content:space-around; margin-top:30px;
+    }
+    .call-btn{
+      width:70px; height:70px; border-radius:50%; border:none; cursor:pointer;
+      display:grid; place-items:center; font-size:1.5rem; transition:all 0.2s;
+    }
+    .call-decline{background:#ef4444; color:white}
+    .call-accept{background:#10b981; color:white}
+    .call-btn:hover{transform:scale(1.05)}
+    .call-btn:active{transform:scale(0.95)}
+    
+    .contacts-section{
+      background:var(--card); border:1px solid #1f242d; border-radius:16px; 
+      padding:20px; margin:20px 0;
+    }
+    .contact-item{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 0; border-bottom:1px solid #1f242d;
+    }
     .contact-item:last-child{border-bottom:none}
-    .status-indicator{padding:4px 8px;border-radius:12px;font-size:.8rem;font-weight:600}
-    .status-online{background:var(--success);color:white}
-    .status-offline{background:var(--muted);color:white}
-    .location-info{background:var(--card);border:1px solid #1f242d;border-radius:16px;padding:20px;margin:20px 0;text-align:center}
-    .hidden{display:none!important}
-    .alert{padding:12px 16px;border-radius:12px;margin:16px 0}
-    .alert-success{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--success)}
-    .alert-error{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:var(--brand-2)}
-    @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-    @keyframes slideOut{from{transform:translateX(0);opacity:1}to{transform:translateX(100%);opacity:0}}
-    @keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(239,68,68,.7)}50%{transform:scale(1.05);box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(239,68,68,0)}}
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.cards,.features-list{grid-template-columns:1fr}.nav a{margin-left:14px}}
+    
+    .status-indicator{
+      padding:4px 8px; border-radius:12px; font-size:0.8rem; font-weight:600;
+    }
+    .status-online{background:var(--success); color:white}
+    .status-offline{background:var(--muted); color:white}
+    
+    .location-info{
+      background:var(--card); border:1px solid #1f242d; border-radius:16px;
+      padding:20px; margin:20px 0; text-align:center;
+    }
+    
+    /* Utility classes */
+    .hidden{display:none !important}
+    .text-center{text-align:center}
+    .mt-4{margin-top:16px}
+    .mb-4{margin-bottom:16px}
+    .alert{
+      padding:12px 16px; border-radius:12px; margin:16px 0;
+    }
+    .alert-success{background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.3); color:var(--success)}
+    .alert-error{background:rgba(239,68,68,.15); border:1px solid rgba(239,68,68,.3); color:var(--brand-2)}
+    
+    /* Emergency notification animations */
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239,68,68,.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(239,68,68,.0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239,68,68,.0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns: 1fr}
+      .cards{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 620px){
+      .cards, .features-list{grid-template-columns:1fr}
+      .nav a{margin-left:14px}
+    }
   </style>
 </head>
 <body>
@@ -99,37 +220,866 @@
     <div class="login-card">
       <div class="login-header">
         <div class="login-logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/>
+          </svg>
         </div>
-        <h2>Welcome to SafetyNest</h2>
-        <p class="muted">Sign in to access your safety dashboard</p>
+        <h2 style="margin:0 0 8px">Welcome to SafetyNest</h2>
+        <p class="muted" style="margin:0; font-size:0.9rem">Sign in to access your safety dashboard</p>
       </div>
+      
       <form id="loginForm">
-        <div class="form-group"><label for="username">Username</label><input type="text" id="username" class="form-input" required></div>
-        <div class="form-group"><label for="password">Password</label><input type="password" id="password" class="form-input" required></div>
-        <div id="loginError" class="alert alert-error hidden">Invalid credentials. Please try again.</div>
-        <button type="submit" class="btn btn-primary mt-4">Sign In</button>
-        <div style="text-align:center;margin-top:16px;color:var(--muted);font-size:.85rem">Demo credentials: <strong>demo</strong> / <strong>password</strong></div>
+        <div class="form-group">
+          <label for="username">Username or Email</label>
+          <input type="text" id="username" class="form-input" placeholder="Enter your username" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+        </div>
+        
+        <div id="loginError" class="alert alert-error hidden">
+          Invalid credentials. Please try again.
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-4">
+          Sign In
+        </button>
+        
+        <div style="text-align:center; margin-top:16px; color:var(--muted); font-size:0.85rem">
+          Demo credentials: <strong>demo</strong> / <strong>password</strong>
+        </div>
       </form>
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Site Content -->
   <div id="mainContent" class="hidden">
-    <!-- header, hero, emergency dashboard, features, contacts, footer -->
-    <!-- (kept same as your original reference code) -->
+    <header aria-label="Site header">
+      <div class="container nav" role="navigation">
+        <a href="#" class="logo" aria-label="SafetyNest Home">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/>
+            </svg>
+          </span>
+          <span>SafetyNest</span>
+        </a>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#emergency">Emergency</a>
+          <a href="#contacts">Contacts</a>
+          <button onclick="logout()" class="btn-secondary" style="padding:8px 16px; margin-left:20px">Logout</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Personal Safety • SOS • Location</p>
+            <h1>Feel safer everywhere with instant <span style="color:var(--brand-2)">SOS</span> and live location sharing.</h1>
+            <p class="lead">SafetyNest connects you to trusted contacts, records critical evidence, and alerts nearby help in seconds — even with spotty connectivity.</p>
+            <div style="display:flex; gap:12px; margin-top:18px">
+              <button onclick="scrollToSection('emergency')" class="btn btn-primary">Emergency Dashboard</button>
+              <a class="pill" href="#features">Explore features</a>
+            </div>
+          </div>
+          <aside class="hero-card" aria-label="Quick highlights">
+            <div class="stat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+              <div>
+                <strong>One-tap SOS</strong>
+                <div class="muted">Sends SMS + live location to trusted circle</div>
+              </div>
+            </div>
+            <div class="stat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+              <div>
+                <strong>Auto evidence</strong>
+                <div class="muted">Optional auto audio/video capture</div>
+              </div>
+            </div>
+            <div class="stat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15A7.97 7.97 0 0020 12 8 8 0 104 12c0 1.1.22 2.15.6 3"/></svg>
+              <div>
+                <strong>Works offline</strong>
+                <div class="muted">Queues alerts when network returns</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Emergency Dashboard -->
+      <section id="emergency" class="container">
+        <h2 class="section-title">Emergency Dashboard</h2>
+        <div class="cards">
+          <div class="card text-center">
+            <h3>SOS Alert</h3>
+            <button id="sosButton" class="sos-button" onclick="triggerSOS()">
+              SOS
+            </button>
+            <p class="muted">Press and hold for 3 seconds to activate emergency alert</p>
+            <div id="sosStatus"></div>
+          </div>
+          
+          <div class="card">
+            <h3>Your Location</h3>
+            <button onclick="updateLocation()" class="btn btn-secondary mb-4">Update Location</button>
+            <div id="locationInfo" class="location-info">
+              <p class="muted">Click "Update Location" to share your current position</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <h3>Emergency Contacts</h3>
+            <div id="emergencyContacts" class="contacts-section">
+              <div class="contact-item">
+                <div>
+                  <strong>Prajwal Tambe</strong>
+                  <div class="muted">7738135966 • friend</div>
+                </div>
+                <span class="status-indicator status-online">Online</span>
+              </div>
+              <div class="contact-item">
+                <div>
+                  <strong>Snehal</strong>
+                  <div class="muted">7666701769 • friend</div>
+                </div>
+                <span class="status-indicator status-online">Online</span>
+              </div>
+              <div class="contact-item">
+                <div>
+                  <strong>Dhanashree</strong>
+                  <div class="muted">9309820334 • family</div>
+                </div>
+                <span class="status-indicator status-online">Online</span>
+              </div>
+              <div class="contact-item">
+                <div>
+                  <strong>John Smith</strong>
+                  <div class="muted">+1 (555) 123-4567 • family</div>
+                </div>
+                <span class="status-indicator status-online">Online</span>
+              </div>
+              <div class="contact-item">
+                <div>
+                  <strong>Sarah Johnson</strong>
+                  <div class="muted">+1 (555) 987-6543 • friend</div>
+                </div>
+                <span class="status-indicator status-offline">Offline</span>
+              </div>
+              <div class="contact-item">
+                <div>
+                  <strong>Emergency Services</strong>
+                  <div class="muted">911 • emergency</div>
+                </div>
+                <span class="status-indicator status-online">Online</span>
+              </div>
+              <div class="contact-item">
+                <div>
+                  <strong>Local Police</strong>
+                  <div class="muted">+1 (555) 911-1234 • police</div>
+                </div>
+                <span class="status-indicator status-online">Online</span>
+              </div>
+            </div>
+            <button onclick="addEmergencyContact()" class="btn btn-secondary mt-4">Add Contact</button>
+          </div>
+        </div>
+        
+        <!-- Additional Safety Tools -->
+        <div style="margin-top: 32px;">
+          <h3 class="section-title" style="font-size: 1.3rem;">Quick Safety Tools</h3>
+          <div class="cards">
+            <div class="card text-center">
+              <h3>Fake Call</h3>
+              <p class="muted mb-4">Simulate an incoming call to safely exit uncomfortable situations</p>
+              <button onclick="triggerFakeCall()" class="btn btn-secondary mb-4">Start Fake Call</button>
+              <div style="display: flex; gap: 8px; justify-content: center;">
+                <select id="fakeCallDelay" class="form-input" style="width: auto; font-size: 0.8rem;">
+                  <option value="0">Immediate</option>
+                  <option value="10">10 seconds</option>
+                  <option value="30" selected>30 seconds</option>
+                  <option value="60">1 minute</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="card text-center">
+              <h3>Flashlight Signal</h3>
+              <p class="muted mb-4">Use your screen as an emergency flashlight signal</p>
+              <button id="flashlightBtn" onclick="toggleFlashlight()" class="btn btn-secondary">Start Flashlight</button>
+              <div id="flashlightStatus" class="mt-4"></div>
+            </div>
+            
+            <div class="card">
+              <h3>Quick Notes</h3>
+              <p class="muted mb-4">Save important safety information quickly</p>
+              <textarea id="safetyNotes" class="form-input" placeholder="Emergency notes, suspicious activity, etc..." rows="3"></textarea>
+              <button onclick="saveSafetyNotes()" class="btn btn-secondary mt-4">Save Notes</button>
+              <div id="notesStatus"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="container">
+        <h2 class="section-title">Core Features</h2>
+        <p class="muted">Built for quick response, privacy, and reliability.</p>
+        <div class="cards" role="list">
+          <article class="card" role="listitem">
+            <span class="pill">SOS & Alerts</span>
+            <h3>One-Tap Emergency</h3>
+            <p>Trigger SOS with a tap or voice phrase; notify contacts and authorities with GPS.</p>
+          </article>
+          <article class="card" role="listitem">
+            <span class="pill">Live Share</span>
+            <h3>Real-Time Location</h3>
+            <p>Share live location until you mark yourself safe; configurable geofences for kids.</p>
+          </article>
+          <article class="card" role="listitem">
+            <span class="pill">Privacy</span>
+            <h3>Secure by Design</h3>
+            <p>End-to-end encryption for sensitive data, with granular consent controls.</p>
+          </article>
+        </div>
+
+        <ul class="features-list" style="margin-top:16px">
+          <li>Fake call & flashlight signal</li>
+          <li>Local police & hospital directory</li>
+          <li>Wearable integration (watch, ring)</li>
+          <li>Anonymous incident reporting</li>
+        </ul>
+      </section>
+
+      <!-- Contact Management -->
+      <section id="contacts" class="container">
+        <h2 class="section-title">Manage Emergency Contacts</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Add New Contact</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="contactName" class="form-input" placeholder="Enter contact name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="Enter phone number" required>
+              </div>
+              <div class="form-group">
+                <label>Relationship</label>
+                <select id="contactRelation" class="form-input">
+                  <option value="family">Family</option>
+                  <option value="friend">Friend</option>
+                  <option value="colleague">Colleague</option>
+                  <option value="neighbor">Neighbor</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Contact</button>
+            </form>
+          </div>
+          
+          <div class="card">
+            <h3>Contact List</h3>
+            <div id="contactList" class="contacts-section">
+              <!-- Contacts will be populated here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px">
+        <small>© <span id="year"></span> SafetyNest. All rights reserved.</small>
+        <small class="muted">Built with privacy-first principles.</small>
+      </div>
+    </footer>
   </div>
 
   <!-- Fake Call Overlay -->
-  <div id="fakeCallOverlay" class="fake-call-overlay hidden"> ... </div>
+  <div id="fakeCallOverlay" class="fake-call-overlay hidden">
+    <div class="call-interface">
+      <div class="caller-avatar" id="callerAvatar">👤</div>
+      <div class="caller-name" id="callerName">Emergency Contact</div>
+      <div class="call-status">Incoming call...</div>
+      
+      <div class="call-buttons">
+        <button class="call-btn call-decline" onclick="declineFakeCall()">
+          📞
+        </button>
+        <button class="call-btn call-accept" onclick="acceptFakeCall()">
+          📱
+        </button>
+      </div>
+      
+      <div style="margin-top: 20px; font-size: 0.8rem; color: var(--muted);">
+        <p>This is a simulated call for safety purposes</p>
+      </div>
+    </div>
+  </div>
 
   <script>
-    /* === ORIGINAL JS, with FIXES === */
-    let currentUser=null;let currentLocation=null;
-    document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const u=document.getElementById('username').value;const p=document.getElementById('password').value;if(u==='demo'&&p==='password'){currentUser={username:u};document.getElementById('loginScreen').classList.add('hidden');document.getElementById('mainContent').classList.remove('hidden')}else{document.getElementById('loginError').classList.remove('hidden')}});
+    // Global variables
+    let currentUser = null;
+    let emergencyContacts = [
+      {id: 1, name: 'Prajwal Tambe', phone: '7738135966', relation: 'friend', status: 'online'},
+      {id: 2, name: 'Snehal', phone: '7666701769', relation: 'friend', status: 'online'},
+      {id: 3, name: 'Dhanashree', phone: '9309820334', relation: 'family', status: 'online'},
+      {id: 4, name: 'John Smith', phone: '+1 (555) 123-4567', relation: 'family', status: 'online'},
+      {id: 5, name: 'Sarah Johnson', phone: '+1 (555) 987-6543', relation: 'friend', status: 'offline'},
+      {id: 6, name: 'Emergency Services', phone: '911', relation: 'emergency', status: 'online'},
+      {id: 7, name: 'Local Police', phone: '+1 (555) 911-1234', relation: 'police', status: 'online'}
+    ];
+    let sosActive = false;
+    let fakeCallTimeout = null;
+    let flashlightActive = false;
+    let flashlightInterval = null;
+    let safetyNotes = localStorage.getItem('safetyNotes') || '';
+    let currentLocation = null;
 
-    function createEmergencyMessage(){let msg='🚨 EMERGENCY ALERT! I need immediate help!';if(currentLocation){msg+=`\n📍 My location: https://maps.google.com/?q=${currentLocation.lat},${currentLocation.lng}`;msg+=`\n⏰ Time: ${new Date().toLocaleString()}`;msg+=`\n🎯 Accuracy: ±${currentLocation.accuracy}m`}else{msg+=`\n⏰ Time: ${new Date().toLocaleString()}\n📍 Location: Unable to determine`}return msg;}
-    function sendFollowUp(){const followUp='📱 FOLLOW-UP: I am still in need of assistance. Please respond or come to my location immediately.';if(currentLocation){window.open(`sms:12345?body=${encodeURIComponent(followUp+"\n📍 Location: https://maps.google.com/?q="+currentLocation.lat+","+currentLocation.lng)}`)}else{window.open(`sms:12345?body=${encodeURIComponent(followUp)}`)}}
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Login functionality
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      // Simple demo authentication
+      if (username === 'demo' && password === 'password') {
+        currentUser = {username: username, loginTime: new Date()};
+        showMainContent();
+        hideLoginError();
+      } else {
+        showLoginError();
+      }
+    });
+
+    function showLoginError() {
+      document.getElementById('loginError').classList.remove('hidden');
+    }
+
+    function hideLoginError() {
+      document.getElementById('loginError').classList.add('hidden');
+    }
+
+    function showMainContent() {
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('mainContent').classList.remove('hidden');
+      populateContactList();
+    }
+
+    function logout() {
+      currentUser = null;
+      document.getElementById('mainContent').classList.add('hidden');
+      document.getElementById('loginScreen').classList.remove('hidden');
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+      hideLoginError();
+    }
+
+    // SOS functionality
+    let sosTimeout;
+    function triggerSOS() {
+      if (sosActive) return;
+      
+      const button = document.getElementById('sosButton');
+      const status = document.getElementById('sosStatus');
+      
+      button.style.background = 'linear-gradient(135deg, var(--warning), #d97706)';
+      button.textContent = 'ACTIVATING...';
+      
+      sosTimeout = setTimeout(() => {
+        sosActive = true;
+        button.style.background = 'linear-gradient(135deg, var(--success), #059669)';
+        button.textContent = 'ACTIVE';
+        
+        status.innerHTML = `
+          <div class="alert alert-success">
+            <strong>SOS Alert Sent!</strong><br>
+            Emergency contacts have been notified with your location.<br>
+            <small>Activated at: ${new Date().toLocaleTimeString()}</small>
+          </div>
+          <button onclick="cancelSOS()" class="btn btn-secondary mt-4">Cancel Alert</button>
+        `;
+        
+        // Simulate sending notifications
+        simulateEmergencyNotification();
+      }, 3000);
+    }
+
+    function cancelSOS() {
+      clearTimeout(sosTimeout);
+      sosActive = false;
+      const button = document.getElementById('sosButton');
+      const status = document.getElementById('sosStatus');
+      
+      button.style.background = 'linear-gradient(135deg, var(--brand), var(--brand-2))';
+      button.textContent = 'SOS';
+      status.innerHTML = '';
+    }
+
+    function simulateEmergencyNotification() {
+      console.log('🚨 EMERGENCY ALERT ACTIVATED 🚨');
+      
+      // Get current location first, then send messages
+      getCurrentLocationForSOS().then(location => {
+        currentLocation = location;
+        sendEmergencyMessages();
+      }).catch(error => {
+        console.log('Location unavailable, sending alerts without location');
+        sendEmergencyMessages();
+      });
+    }
+    
+    function getCurrentLocationForSOS() {
+      return new Promise((resolve, reject) => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              resolve({
+                lat: position.coords.latitude.toFixed(6),
+                lng: position.coords.longitude.toFixed(6),
+                accuracy: Math.round(position.coords.accuracy),
+                timestamp: new Date().toISOString()
+              });
+            },
+            (error) => reject(error),
+            { enableHighAccuracy: true, timeout: 5000, maximumAge: 60000 }
+          );
+        } else {
+          reject(new Error('Geolocation not supported'));
+        }
+      });
+    }
+    
+    function sendEmergencyMessages() {
+      const timestamp = new Date().toLocaleString();
+      const emergencyMessage = createEmergencyMessage();
+      
+      console.log('📱 Sending emergency messages...');
+      
+      emergencyContacts.forEach(contact => {
+        if (contact.status === 'online') {
+          console.log(`📨 Message sent to ${contact.name} (${contact.phone}):`);
+          console.log(`   "${emergencyMessage}"`);
+          
+          // For demonstration, show SMS-like interface
+          showSMSNotification(contact, emergencyMessage);
+          
+          // For real implementation, integrate with SMS API or show phone app
+          if (contact.relation === 'emergency' || contact.relation === 'police') {
+            // For emergency services, provide direct call option
+            createCallButton(contact);
+          } else {
+            // For personal contacts, create SMS link
+            createSMSLink(contact, emergencyMessage);
+          }
+        }
+      });
+      
+      updateSOSStatus(emergencyMessage);
+    }
+    
+    function createEmergencyMessage() {
+      let message = '🚨 EMERGENCY ALERT! I need immediate help!';
+      
+      if (currentLocation) {
+        // FIXED: use reliable maps URL format
+        message += `\n📍 My location: https://maps.google.com/?q=${currentLocation.lat},${currentLocation.lng}`;
+        message += `\n⏰ Time: ${new Date().toLocaleString()}`;
+        message += `\n🎯 Accuracy: ±${currentLocation.accuracy} meters`;
+      } else {
+        message += `\n⏰ Time: ${new Date().toLocaleString()}`;
+        message += `\n📍 Location: Unable to determine`;
+      }
+      
+      message += '\n\n⚠️ This is an automated emergency alert from SafetyNest app.';
+      return message;
+    }
+    
+    function showSMSNotification(contact, message) {
+      // Create a temporary notification for each SMS sent
+      const notification = document.createElement('div');
+      notification.className = 'sms-notification';
+      notification.style.cssText = `
+        position: fixed;
+        top: ${20 + emergencyContacts.indexOf(contact) * 80}px;
+        right: 20px;
+        background: var(--success);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.3);
+        z-index: 10001;
+        max-width: 300px;
+        font-size: 0.85rem;
+        animation: slideIn 0.3s ease-out;
+      `;
+      
+      notification.innerHTML = `
+        <strong>📨 SMS Sent!</strong><br>
+        To: ${contact.name}<br>
+        <small>${contact.phone}</small>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-in forwards';
+        setTimeout(() => notification.remove(), 300);
+      }, 4000);
+    }
+    
+    function createCallButton(contact) {
+      // For emergency services, create a direct call button
+      const callBtn = document.createElement('button');
+      callBtn.className = 'btn btn-primary';
+      callBtn.style.cssText = `
+        position: fixed;
+        bottom: ${20 + emergencyContacts.indexOf(contact) * 60}px;
+        left: 20px;
+        z-index: 10001;
+        animation: pulse 1s infinite;
+      `;
+      callBtn.innerHTML = `📞 Call ${contact.name}`;
+      callBtn.onclick = () => {
+        window.open(`tel:${contact.phone}`, '_self');
+        callBtn.remove();
+      };
+      
+      document.body.appendChild(callBtn);
+      
+      setTimeout(() => callBtn.remove(), 15000); // Remove after 15 seconds
+    }
+    
+    function createSMSLink(contact, message) {
+      // For personal contacts, create SMS link that opens default SMS app
+      const smsBtn = document.createElement('button');
+      smsBtn.className = 'btn btn-secondary';
+      smsBtn.style.cssText = `
+        position: fixed;
+        bottom: ${20 + (emergencyContacts.indexOf(contact) - 2) * 60}px;
+        right: 20px;
+        z-index: 10001;
+        font-size: 0.8rem;
+      `;
+      smsBtn.innerHTML = `💬 SMS ${contact.name}`;
+      smsBtn.onclick = () => {
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`sms:${contact.phone}?body=${encodedMessage}`, '_self');
+        smsBtn.remove();
+      };
+      
+      document.body.appendChild(smsBtn);
+      
+      setTimeout(() => smsBtn.remove(), 15000); // Remove after 15 seconds
+    }
+    
+    function updateSOSStatus(message) {
+      const status = document.getElementById('sosStatus');
+      const sentCount = emergencyContacts.filter(c => c.status === 'online').length;
+      
+      status.innerHTML = `
+        <div class="alert alert-success">
+          <strong>🚨 EMERGENCY ALERT SENT!</strong><br>
+          <strong>📨 Messages sent to ${sentCount} contacts</strong><br>
+          <small>Activated at: ${new Date().toLocaleTimeString()}</small>
+          <hr style="margin: 10px 0; border-color: rgba(255,255,255,0.2);">
+          <div style="background: rgba(0,0,0,0.2); padding: 8px; border-radius: 8px; font-size: 0.8rem;">
+            <strong>Message preview:</strong><br>
+            <em>${message.substring(0, 100)}...</em>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; margin-top: 12px;">
+          <button onclick="cancelSOS()" class="btn btn-secondary">Cancel Alert</button>
+          <button onclick="sendFollowUp()" class="btn btn-primary">Send Follow-up</button>
+        </div>
+      `;
+    }
+
+    // Location functionality
+    function updateLocation() {
+      const locationInfo = document.getElementById('locationInfo');
+      locationInfo.innerHTML = '<p class="muted">Getting your location...</p>';
+      
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude.toFixed(6);
+            const lng = position.coords.longitude.toFixed(6);
+            const accuracy = Math.round(position.coords.accuracy);
+            
+            locationInfo.innerHTML = `
+              <div class="alert alert-success">
+                <strong>Location Updated</strong><br>
+                <strong>Coordinates:</strong> ${lat}, ${lng}<br>
+                <strong>Accuracy:</strong> ±${accuracy} meters<br>
+                <small>Last updated: ${new Date().toLocaleTimeString()}</small>
+              </div>
+            `;
+            
+            // store currentLocation too
+            currentLocation = { lat, lng, accuracy };
+          },
+          (error) => {
+            locationInfo.innerHTML = `
+              <div class="alert alert-error">
+                <strong>Location Error:</strong><br>
+                ${error.message}<br>
+                Please enable location permissions.
+              </div>
+            `;
+          }
+        );
+      } else {
+        locationInfo.innerHTML = `
+          <div class="alert alert-error">
+            Geolocation is not supported by this browser.
+          </div>
+        `;
+      }
+    }
+
+    // Emergency contacts management
+    function addEmergencyContact() {
+      scrollToSection('contacts');
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('contactName').value;
+      const phone = document.getElementById('contactPhone').value;
+      const relation = document.getElementById('contactRelation').value;
+      
+      const newContact = {
+        id: Date.now(),
+        name: name,
+        phone: phone,
+        relation: relation,
+        status: 'offline'
+      };
+      
+      emergencyContacts.push(newContact);
+      populateContactList();
+      
+      // Clear form
+      document.getElementById('contactName').value = '';
+      document.getElementById('contactPhone').value = '';
+      document.getElementById('contactRelation').value = 'family';
+      
+      // Show success message
+      const contactList = document.getElementById('contactList');
+      contactList.insertAdjacentHTML('afterend', `
+        <div class="alert alert-success" id="addContactSuccess">
+          Contact "${name}" added successfully!
+        </div>
+      `);
+      
+      setTimeout(() => {
+        const successMsg = document.getElementById('addContactSuccess');
+        if (successMsg) successMsg.remove();
+      }, 3000);
+    });
+
+    function populateContactList() {
+      const contactList = document.getElementById('contactList');
+      
+      if (emergencyContacts.length === 0) {
+        contactList.innerHTML = '<p class="muted">No emergency contacts added yet.</p>';
+        return;
+      }
+      
+      contactList.innerHTML = emergencyContacts.map(contact => `
+        <div class="contact-item">
+          <div>
+            <strong>${contact.name}</strong>
+            <div class="muted">${contact.phone} • ${contact.relation}</div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="status-indicator status-${contact.status}">${contact.status}</span>
+            <button onclick="removeContact(${contact.id})" class="btn-secondary" style="padding: 4px 8px; font-size: 0.8rem;">Remove</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function removeContact(contactId) {
+      emergencyContacts = emergencyContacts.filter(contact => contact.id !== contactId);
+      populateContactList();
+    }
+
+    // Fake Call functionality
+    function triggerFakeCall() {
+      const delay = parseInt(document.getElementById('fakeCallDelay').value) * 1000;
+      const button = event.target;
+      
+      if (fakeCallTimeout) {
+        clearTimeout(fakeCallTimeout);
+        fakeCallTimeout = null;
+        button.textContent = 'Start Fake Call';
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-secondary');
+        return;
+      }
+      
+      button.textContent = delay > 0 ? `Calling in ${delay/1000}s...` : 'Calling...';
+      button.classList.remove('btn-secondary');
+      button.classList.add('btn-primary');
+      
+      fakeCallTimeout = setTimeout(() => {
+        showFakeCall();
+        button.textContent = 'Start Fake Call';
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-secondary');
+        fakeCallTimeout = null;
+      }, delay);
+    }
+    
+    function showFakeCall() {
+      const overlay = document.getElementById('fakeCallOverlay');
+      const callerName = document.getElementById('callerName');
+      const callerAvatar = document.getElementById('callerAvatar');
+      
+      // Randomize caller details
+      const fakeCallers = [
+        {name: 'Mom', avatar: '👩'},
+        {name: 'Dad', avatar: '👨'},
+        {name: 'Boss', avatar: '💼'},
+        {name: 'Doctor', avatar: '👨‍⚕️'},
+        {name: 'Emergency', avatar: '🚨'}
+      ];
+      
+      const caller = fakeCallers[Math.floor(Math.random() * fakeCallers.length)];
+      callerName.textContent = caller.name;
+      callerAvatar.textContent = caller.avatar;
+      
+      overlay.classList.remove('hidden');
+      
+      // Vibrate if available
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200, 100, 200]);
+      }
+    }
+    
+    function acceptFakeCall() {
+      const overlay = document.getElementById('fakeCallOverlay');
+      overlay.classList.add('hidden');
+      
+      // Show a brief "call connected" message
+      const status = document.createElement('div');
+      status.className = 'alert alert-success';
+      status.innerHTML = 'Call connected - You can now safely leave the situation';
+      status.style.position = 'fixed';
+      status.style.top = '20px';
+      status.style.left = '50%';
+      status.style.transform = 'translateX(-50%)';
+      status.style.zIndex = '10000';
+      document.body.appendChild(status);
+      
+      setTimeout(() => status.remove(), 3000);
+    }
+    
+    function declineFakeCall() {
+      document.getElementById('fakeCallOverlay').classList.add('hidden');
+    }
+    
+    // Flashlight functionality
+    function toggleFlashlight() {
+      const btn = document.getElementById('flashlightBtn');
+      const status = document.getElementById('flashlightStatus');
+      
+      if (flashlightActive) {
+        // Stop flashlight
+        clearInterval(flashlightInterval);
+        flashlightActive = false;
+        document.body.style.backgroundColor = '';
+        btn.textContent = 'Start Flashlight';
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-secondary');
+        status.innerHTML = '';
+      } else {
+        // Start flashlight
+        flashlightActive = true;
+        btn.textContent = 'Stop Flashlight';
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-primary');
+        status.innerHTML = '<div class="alert alert-success">Flashlight signal active - Screen flashing white</div>';
+        
+        let isWhite = false;
+        flashlightInterval = setInterval(() => {
+          document.body.style.backgroundColor = isWhite ? '' : 'white';
+          isWhite = !isWhite;
+        }, 500);
+      }
+    }
+    
+    // Safety Notes functionality
+    function saveSafetyNotes() {
+      const notes = document.getElementById('safetyNotes').value;
+      const status = document.getElementById('notesStatus');
+      
+      localStorage.setItem('safetyNotes', notes);
+      safetyNotes = notes;
+      
+      status.innerHTML = '<div class="alert alert-success">Safety notes saved successfully!</div>';
+      setTimeout(() => {
+        status.innerHTML = '';
+      }, 3000);
+    }
+    
+    // Additional SOS functions
+    function sendFollowUp() {
+      const followUpMessage = '📱 FOLLOW-UP: I am still in need of assistance. Please respond or come to my location immediately.';
+      
+      emergencyContacts.forEach(contact => {
+        if (contact.status === 'online' && contact.relation !== 'emergency') {
+          console.log(`📨 Follow-up sent to ${contact.name}: "${followUpMessage}"`);
+          
+          // FIXED: use reliable maps URL format in follow-up
+          const encodedMessage = encodeURIComponent(followUpMessage + (currentLocation ? 
+            `\n📍 Location: https://maps.google.com/?q=${currentLocation.lat},${currentLocation.lng}` : ''));
+          window.open(`sms:${contact.phone}?body=${encodedMessage}`, '_blank');
+        }
+      });
+      
+      // Show confirmation
+      const confirmation = document.createElement('div');
+      confirmation.className = 'alert alert-success';
+      confirmation.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10002;';
+      confirmation.innerHTML = '📱 Follow-up messages sent to all personal contacts!';
+      document.body.appendChild(confirmation);
+      
+      setTimeout(() => confirmation.remove(), 3000);
+    }
+
+    // Utility functions
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initialize the app
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set focus on username field
+      document.getElementById('username').focus();
+      
+      // Load saved notes
+      if (safetyNotes) {
+        const notesField = document.getElementById('safetyNotes');
+        if (notesField) notesField.value = safetyNotes;
+      }
+    });
   </script>
 </body>
 </html>
+
